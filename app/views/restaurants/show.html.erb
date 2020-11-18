@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="edit-delete">
+    <%= link_to 'add_review',new_restaurant_review_path(@restaurant) %>
+  </div>
+  <div class="jumbotron">
+    <h1 class="display-4"><%= @restaurant.name %></h1>
+    <p class="lead"><%= "#{@restaurant.category} - #{@restaurant.phone_number}" %></p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <%= link_to 'Back to restaurants' , restaurants_path %>
+  </div>
+
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.content %>
+      <%= link_to 'Delete!',
+                  review_path(review),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }
+      %>
+    </li>
+    <% end %>
+  </ul>
+
+</div>

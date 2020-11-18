@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Restaurants</h1>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant),:class => "link-restaurants" do %>
+    <div class="col-4 restaurants">
+      <div class="card rounded-lg overflow-hidden" style="width: 18rem;">
+        <img src="https://source.unsplash.com/600x400/?<%= restaurant.category %>%20restaurant" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"> <%= restaurant.name %> </p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <%= link_to "create a restaurant", new_restaurant_path %>
+</div>
